@@ -12,9 +12,10 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
-Route::get('/timeline', function () {
-    return view('app.master.timeline');
-});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

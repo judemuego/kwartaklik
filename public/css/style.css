@@ -1,0 +1,10 @@
+.header .header-brand .logo {
+    margin-left: 17px !important;
+}
+.chat-widget-button {
+    background-color: #0cd33f !important;
+}
+
+.menu .menu-item .menu-item-link:hover .menu-item-link-icon {
+    fill: #0cd23f !important;
+}

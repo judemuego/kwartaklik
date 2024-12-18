@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Subscriber;
+use App\SubscriberBadge;
 use App\PointingSystem;
 use App\PointTransaction;
 use App\Http\Controllers\Controller;
@@ -106,6 +107,14 @@ class RegisterController extends Controller
                 'created_by' =>  $record->id,
                 'updated_by' =>  $record->id,
             ]);
+
+            SubscriberBadge::create([
+                'subscriber_id' => $subscriber->id,
+                'badge_id' => 1,
+                'earned_at' => Carbon::now(),
+                'created_by' =>  $record->id,
+                'updated_by' =>  $record->id,
+            ]);
         }
 
         if ($pointingSystem_signup->status === 'ACTIVE') {
@@ -120,5 +129,15 @@ class RegisterController extends Controller
                 'updated_by' =>  $record->id,
             ]);
         }
+
+        SubscriberBadge::create([
+            'subscriber_id' => $subscriber->id,
+            'badge_id' => 2,
+            'earned_at' => Carbon::now(),
+            'created_by' =>  $record->id,
+            'updated_by' =>  $record->id,
+        ]);
+
+        return $record;
     }
 }

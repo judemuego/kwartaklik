@@ -24,12 +24,12 @@ Route::group(['prefix' => 'profile'], function (){
 });
 
 Route::group(['prefix' => 'badge'], function (){
-    Route::get          ('/',                            'ProfileController@index'                          )->name('page');
-    Route::get          ('/get',                         'ProfileController@get'                            )->name('get');
-    Route::post         ('/save',                        'ProfileController@save'                           )->name('save');
-    Route::get          ('/edit/{id}',                   'ProfileController@edit'                           )->name('reason');
-    Route::post         ('/update/{id}',                 'ProfileController@update'                         )->name('update');
-    Route::get          ('/destroy/{id}',                'ProfileController@destroy'                        )->name('destroy');
+    Route::get          ('/',                            'BadgeController@index'                          )->name('page');
+    Route::get          ('/get',                         'BadgeController@get'                            )->name('get');
+    Route::post         ('/save',                        'BadgeController@save'                           )->name('save');
+    Route::get          ('/edit/{id}',                   'BadgeController@edit'                           )->name('reason');
+    Route::post         ('/update/{id}',                 'BadgeController@update'                         )->name('update');
+    Route::get          ('/destroy/{id}',                'BadgeController@destroy'                        )->name('destroy');
 });
 
 Route::group(['prefix' => 'point_transaction'], function (){
@@ -37,13 +37,8 @@ Route::group(['prefix' => 'point_transaction'], function (){
 });
 
 
-
 Route::get('/dashboard', function () {
     return view('frontend.pages.overview');
-});
-
-Route::get('/badges', function () {
-    return view('frontend.pages.badges');
 });
 
 Route::get('/tasks', function () {
@@ -56,4 +51,8 @@ Route::get('/events', function () {
 
 Route::get('/marketplace', function () {
     return view('frontend.pages.marketplace');
+});
+
+Route::get('/timeline', function () {
+    return view('frontend.pages.timeline');
 });

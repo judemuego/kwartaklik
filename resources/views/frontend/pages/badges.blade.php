@@ -8,18 +8,18 @@
         <p class="section-banner-text">Check out all your unlocked and locked badges!</p>
     </div>
     <div class="grid grid-3-3-3-3 top-space centered">
-        <div class="badge-item-stat">
-        <img class="badge-item-stat-image-preview" src="assets/img/badge/bronze-s.png" alt="badge-bronze-s">
-        <img class="badge-item-stat-image" src="assets/img/badge/bronze-b.png" alt="badge-bronze-b">
-        <p class="badge-item-stat-title">Bronze User</p>
-        <p class="badge-item-stat-text">Has posted more than 1 post on their profile</p>
-        <div class="progress-stat">
-            <div id="badge-bronze" class="progress-stat-bar"></div>
-            <div class="bar-progress-wrap">
-            <p class="bar-progress-info negative center"><span class="bar-progress-text no-space"></span></p>
-            </div>
+        @foreach($badges as $badge)
+        <div class="badge-item-stat {{ in_array($badge->id, $unlockedBadgeIds) ? 'unlocked' : 'locked' }}">
+            <img class="badge-item-stat-image-preview" src="assets/img/badge/bronze-s.png" alt="badge-bronze-s">
+            <img class="badge-item-stat-image" src="assets/img/badge/bronze-b.png" alt="badge-bronze-b">
+            <p class="badge-item-stat-title">{{ $badge->name }}</p>
+            <p class="badge-item-stat-text">{{ $badge->description }}</p>
+            <p class="text-sticker" style="color: {{ in_array($badge->id, $unlockedBadgeIds) ? 'green' : 'red' }}">
+                <i class="fas {{ in_array($badge->id, $unlockedBadgeIds) ? 'fa-unlock' : 'fa-lock' }}"></i>
+                {{ in_array($badge->id, $unlockedBadgeIds) ? 'UNLOCKED' : 'LOCKED' }}
+            </p>
         </div>
-        </div>
+        @endforeach
     </div>
 </div>
 @endsection

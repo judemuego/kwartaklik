@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Subscriber;
+use App\User;
 use Yajra\Address\Entities\Region;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
@@ -36,6 +37,12 @@ class ProfileController extends Controller
     public function update(Request $request, $id)
     {
         Subscriber::find($id)->update($request->all());
+        $record = Subscriber::find($id)->first();
+
+        if($request->firstname != null && $request->lastname != null)
+        {
+          User::where('id', $record->user_id)->update(['name' => $request->firstname . ' ' . $request->lastname]);
+        }
 
         return response()->json();
     }

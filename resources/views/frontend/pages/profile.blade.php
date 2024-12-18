@@ -70,7 +70,7 @@
           
           <div class="section-header-info">
             <p class="section-pretitle">My Profile</p>
-            <h2 class="section-title">Profile Info (Code: {{Auth::user()->user_code}})</h2>
+            <h2 class="section-title">Profile Info <h5>My Code: {{Auth::user()->user_code}}</h5></h2>
            <input type="hidden" value="{{$subscriber->id}}" id="subscriber_id">
 
           </div>
@@ -292,25 +292,35 @@
           </div>
 
           <div class="widget-box">
-            <p class="widget-box-title">Manage Badges</p>
-            <div class="widget-box-content">
-              <div class="draggable-items">
-                <div class="draggable-item">
-                  <div class="badge-item">
-                    <img src="assets/img/badge/gold-s.png" alt="badge-gold-s">
-                  </div>
+            <p class="widget-box-title">My Account</p>
+            <br>
+            <div class="form-row split">
+              <div class="form-item">
+                <div class="form-input active">
+                  <label for="email">Email</label>
+                  <input type="text" id="email" name="email" value="{{Auth::user()->email}}">
                 </div>
-                
-                <div class="draggable-item empty"></div>
-                <div class="draggable-item empty"></div>
-                <div class="draggable-item empty"></div>
-                <div class="draggable-item empty"></div>
-                <div class="draggable-item empty"></div>
-                <div class="draggable-item empty"></div>
-                <div class="draggable-item empty"></div>
-                
               </div>
-              <p class="widget-box-text light">Choose the order in which your badges are shown. Just drag and place them wherever you want!</p>
+              <div class="form-item">
+                <div class="form-input active">
+                  <label for="username">Username</label>
+                  <input type="text" id="username" name="username" value="{{Auth::user()->username}}">
+                </div>
+              </div>
+            </div>
+            <div class="form-row split">
+              <div class="form-item">
+                <div class="form-input active">
+                  <label for="email">User Code</label>
+                  <input type="text" id="user_code" name="user_code" value="{{Auth::user()->user_code}}" disabled>
+                </div>
+              </div>
+              <div class="form-item">
+                <div class="form-input active">
+                  <label for="username">Password</label>
+                  <input type="password" id="password" name="password" value="{{Auth::user()->password}}">
+                </div>
+              </div>
             </div>
           </div>
         </div>

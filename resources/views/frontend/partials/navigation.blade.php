@@ -35,7 +35,7 @@
         </a>
       </li>
       <li class="menu-item">
-        <a class="menu-item-link text-tooltip-tfr" href="/badges" data-title="Badges">
+        <a class="menu-item-link text-tooltip-tfr" href="{{ url('badge')}}" data-title="Badges">
           <svg class="menu-item-link-icon icon-badges">
             <use xlink:href="#svg-badges"></use>
           </svg>
@@ -145,7 +145,7 @@
         </a>
       </li>
       <li class="menu-item">
-        <a class="menu-item-link" href="/badges">
+        <a class="menu-item-link" href="{{ url('badge')}}">
           <svg class="menu-item-link-icon icon-badges">
             <use xlink:href="#svg-badges"></use>
           </svg>
@@ -230,7 +230,7 @@
         </a>
       </li>
       <li class="menu-item">
-        <a class="menu-item-link" href="/badges">
+        <a class="menu-item-link" href="{{ url('badge')}}">
           <svg class="menu-item-link-icon icon-badges">
             <use xlink:href="#svg-badges"></use>
           </svg>

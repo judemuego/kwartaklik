@@ -10,18 +10,27 @@ use Yajra\Address\Entities\Barangay;
 
 class LocationController extends Controller
 {
+    public function getRegions()
+    {
+        $regions = Region::all();
+        return response()->json($regions);
+    }
+    
     public function getProvinces($region_id)
     {
-        return response()->json(Province::where('region_id', $region_id)->get());
+        $provinces = Province::where('region_id', $region_id)->get();
+        return response()->json($provinces);
     }
-
+    
     public function getCities($province_id)
     {
-        return response()->json(City::where('province_id', $province_id)->get());
+        $cities = City::where('province_id', $province_id)->get();
+        return response()->json($cities);
     }
-
+    
     public function getBarangays($city_id)
     {
-        return response()->json(Barangay::where('city_id', $city_id)->get());
+        $barangays = Barangay::where('city_id', $city_id)->get();
+        return response()->json($barangays);
     }
 }

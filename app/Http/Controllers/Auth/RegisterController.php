@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Carbon\Carbon;
 use DB;
+use Auth;
 
 class RegisterController extends Controller
 {
@@ -28,18 +29,8 @@ class RegisterController extends Controller
 
     use RegistersUsers;
 
-    /**
-     * Where to redirect users after registration.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/login';
+    protected $redirectTo = '/profile';
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
     public function __construct()
     {
         $this->middleware('guest');
@@ -85,7 +76,7 @@ class RegisterController extends Controller
     {
         $userCode = $this->generateUserCode();
 
-        return $record = User::create([
+        $record = User::create([
             'email' => $data['email'],
             'username' => $data['username'],
             'user_code' => $userCode,
@@ -95,7 +86,10 @@ class RegisterController extends Controller
 
         $subscriber = Subscriber::create([
             'user_id' => $record->id,
+            'subscription_type_id' => 1,
             'referral_code' => $data['referral_code'],
+            'created_by' =>  $record->id,
+            'updated_by' =>  $record->id,
         ]);
 
         $pointingSystem_earlybird = PointingSystem::where('id', 1)->first();
@@ -104,22 +98,26 @@ class RegisterController extends Controller
         if ($pointingSystem_earlybird->status === 'ACTIVE') {
             PointTransaction::create([
                 'subscriber_id' => $subscriber->id,
-                'type' => $pointingSystem_earlybird->activity,
-                'transactionable_type' => 'SUBSCRIBER',
-                'transactionable_type' => $subscriber->id,
+                'type' => 'EARN',
+                'transactionable_type' => $pointingSystem_earlybird->activity,
+                'transactionable_id' => $pointingSystem_earlybird->id,
                 'amount' => $pointingSystem_earlybird->coins_earned,
                 'description' => $pointingSystem_earlybird->activity . ' - ' . $pointingSystem_earlybird->coins_earned,
+                'created_by' =>  $record->id,
+                'updated_by' =>  $record->id,
             ]);
         }
 
         if ($pointingSystem_signup->status === 'ACTIVE') {
             PointTransaction::create([
                 'subscriber_id' => $subscriber->id,
-                'type' => $pointingSystem_signup->activity,
-                'transactionable_type' => 'SUBSCRIBER',
-                'transactionable_type' => $subscriber->id,
+                'type' => 'EARN',
+                'transactionable_type' => $pointingSystem_signup->activity,
+                'transactionable_id' => $pointingSystem_signup->id,
                 'amount' => $pointingSystem_signup->coins_earned,
                 'description' => $pointingSystem_signup->activity . ' - ' . $pointingSystem_signup->coins_earned,
+                'created_by' =>  $record->id,
+                'updated_by' =>  $record->id,
             ]);
         }
     }

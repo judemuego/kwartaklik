@@ -4,9 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="/css/style.css">
+    <meta name="csrf-token" content="{{	csrf_token() }}">
     <link rel="stylesheet" href="{{ asset('assets/css/vendor/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/styles.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/vendor/simplebar.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link rel="icon" href="assets/img/kwartaklik-fav.png">
     <title>Kwarta Klik | Home</title>
 </head>
@@ -52,6 +54,18 @@
 <script src="{{ asset('assets/js/form/form.utils.js') }}"></script>
 <script src="{{ asset('assets/js/utils/svg-loader.js') }}"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function(){
+    $.ajax({
+            url: 'point_transaction/sum',
+            method: 'GET',
+            success: function(response) {
+              console.log(response);
+              $('.my_account').html('<span class="fa fa-fw fa-coins"></span> ' + response.sum );
+            }
+        });
+  })
+</script>
 @yield('scripts')
 </body>
 </html>

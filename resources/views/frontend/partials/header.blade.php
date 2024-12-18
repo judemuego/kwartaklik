@@ -26,39 +26,12 @@
           <li class="menu-main-item">
             <a class="menu-main-item-link" href="#">Home</a>
           </li>
-          <li class="menu-main-item">
-            <a class="menu-main-item-link" href="#">Careers</a>
-          </li>
-          <li class="menu-main-item">
-            <a class="menu-main-item-link" href="#">Faqs</a>
-          </li>
-          <li class="menu-main-item">
-            <p class="menu-main-item-link">
-              <svg class="icon-dots">
-                <use xlink:href="#svg-dots"></use>
-              </svg>
-            </p>
-            <ul class="menu-main">
-              <li class="menu-main-item">
-                <a class="menu-main-item-link" href="#">About Us</a>
-              </li>
-              <li class="menu-main-item">
-                <a class="menu-main-item-link" href="#">Our Blog</a>
-              </li>
-              <li class="menu-main-item">
-                <a class="menu-main-item-link" href="#">Contact Us</a>
-              </li>
-              <li class="menu-main-item">
-                <a class="menu-main-item-link" href="#">Privacy Policy</a>
-              </li>
-            </ul>
-          </li>
         </ul>
       </nav>
     </div>
     <div class="header-actions search-bar">
       <div class="interactive-input dark">
-        <input type="text" id="search-main" name="search_main" placeholder="Search here for people or groups">
+        <input type="text" id="search-main" name="search_main" placeholder="Search here">
         <div class="interactive-input-icon-wrap">
           <svg class="interactive-input-icon icon-magnifying-glass">
             <use xlink:href="#svg-magnifying-glass"></use>
@@ -191,7 +164,7 @@
     <div class="header-actions">
       <div class="progress-stat">
         <div class="bar-progress-wrap">
-          <p class="bar-progress-info">Next: <span class="bar-progress-text"></span></p>
+          <p class="bar-progress-info">Weekly Task<span class="bar-progress-text"></span></p>
         </div>
         <div id="logged-user-level" class="progress-stat-bar"></div>
       </div>
@@ -845,24 +818,24 @@
             </div>
           </div>
           <p class="dropdown-navigation-category">My Profile</p>
-          <a class="dropdown-navigation-link" href="hub-profile-info.html">Profile Info</a>
-          <a class="dropdown-navigation-link" href="hub-profile-social.html">Social &amp; Stream</a>
-          <a class="dropdown-navigation-link" href="hub-profile-notifications.html">Notifications</a>
-          <a class="dropdown-navigation-link" href="hub-profile-messages.html">Messages</a>
-          <a class="dropdown-navigation-link" href="hub-profile-requests.html">Friend Requests</a>
+          <a class="dropdown-navigation-link" href="#">Profile Info</a>
+          <a class="dropdown-navigation-link" href="#">Points History</a>
           <p class="dropdown-navigation-category">Account</p>
           <a class="dropdown-navigation-link" href="hub-account-info.html">Account Info</a>
           <a class="dropdown-navigation-link" href="hub-account-password.html">Change Password</a>
           <a class="dropdown-navigation-link" href="hub-account-settings.html">General Settings</a>
-          <p class="dropdown-navigation-category">Groups</p>
-          <a class="dropdown-navigation-link" href="hub-group-management.html">Manage Groups</a>
-          <a class="dropdown-navigation-link" href="hub-group-invitations.html">Invitations</a>
           <p class="dropdown-navigation-category">My Store</p>
-          <a class="dropdown-navigation-link" href="hub-store-account.html">My Account <span class="highlighted">$250,32</span></a>
+          <a class="dropdown-navigation-link" href="hub-store-account.html">
+              Kwarta Coins
+              <span class="highlighted my_account"></span> 
+            
+          </a>
           <a class="dropdown-navigation-link" href="hub-store-statement.html">Sales Statement</a>
           <a class="dropdown-navigation-link" href="hub-store-items.html">Manage Items</a>
-          <a class="dropdown-navigation-link" href="hub-store-downloads.html">Downloads</a>
-          <p class="dropdown-navigation-button button small secondary">Logout</p>
+          <form action="{{ route('logout') }}" method="POST">
+            @csrf
+            <button type="submit" class="dropdown-navigation-button button small secondary">Logout</button>
+          </form>
         </div>
       </div>
     </div>
@@ -871,7 +844,7 @@
     <div class="bar-actions">
       <div class="progress-stat">
         <div class="bar-progress-wrap">
-          <p class="bar-progress-info">Next: <span class="bar-progress-text"></span></p>
+          <p class="bar-progress-info">Weekly Task: <span class="bar-progress-text"></span></p>
         </div>
         <div id="logged-user-level-cp" class="progress-stat-bar"></div>
       </div>

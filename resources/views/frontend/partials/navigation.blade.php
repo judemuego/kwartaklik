@@ -206,7 +206,7 @@
             <p class="user-avatar-badge-text">24</p>
           </div>
         </a>
-        <p class="navigation-widget-info-title"><a href="{{ url('profile')}}">Marina Valentine</a></p>
+        <p class="navigation-widget-info-title"><a href="{{ url('profile')}}">{{Auth::user()->username}}</a></p>
         <p class="navigation-widget-info-text">Welcome Back!</p>
       </div>
       <p class="navigation-widget-info-button button small secondary">Logout</p>
@@ -214,15 +214,15 @@
     <p class="navigation-widget-section-title">Sections</p>
     <ul class="menu">
       <li class="menu-item">
-        <a class="menu-item-link" href="newsfeed.html">
+        <a class="menu-item-link" href="{{ url('profile')}}">
           <svg class="menu-item-link-icon icon-newsfeed">
             <use xlink:href="#svg-newsfeed"></use>
           </svg>
-          Newsfeed
+          Profile
         </a>
       </li>
       <li class="menu-item">
-        <a class="menu-item-link" href="overview.html">
+        <a class="menu-item-link" href="/dashboard">
           <svg class="menu-item-link-icon icon-overview">
             <use xlink:href="#svg-overview"></use>
           </svg>
@@ -230,23 +230,7 @@
         </a>
       </li>
       <li class="menu-item">
-        <a class="menu-item-link" href="groups.html">
-          <svg class="menu-item-link-icon icon-group">
-            <use xlink:href="#svg-group"></use>
-          </svg>
-          Groups
-        </a>
-      </li>
-      <li class="menu-item">
-        <a class="menu-item-link" href="members.html">
-          <svg class="menu-item-link-icon icon-members">
-            <use xlink:href="#svg-members"></use>
-          </svg>
-          Members
-        </a>
-      </li>
-      <li class="menu-item">
-        <a class="menu-item-link" href="badges.html">
+        <a class="menu-item-link" href="/badges">
           <svg class="menu-item-link-icon icon-badges">
             <use xlink:href="#svg-badges"></use>
           </svg>
@@ -254,23 +238,15 @@
         </a>
       </li>
       <li class="menu-item">
-        <a class="menu-item-link" href="quests.html">
+        <a class="menu-item-link" href="/tasks">
           <svg class="menu-item-link-icon icon-quests">
             <use xlink:href="#svg-quests"></use>
           </svg>
-          Quests
+          Task
         </a>
       </li>
       <li class="menu-item">
-        <a class="menu-item-link" href="streams.html">
-          <svg class="menu-item-link-icon icon-streams">
-            <use xlink:href="#svg-streams"></use>
-          </svg>
-          Streams
-        </a>
-      </li>
-      <li class="menu-item">
-        <a class="menu-item-link" href="events.html">
+        <a class="menu-item-link" href="/events">
           <svg class="menu-item-link-icon icon-events">
             <use xlink:href="#svg-events"></use>
           </svg>
@@ -278,15 +254,7 @@
         </a>
       </li>
       <li class="menu-item">
-        <a class="menu-item-link" href="forums.html">
-          <svg class="menu-item-link-icon icon-forums">
-            <use xlink:href="#svg-forums"></use>
-          </svg>
-          Forums
-        </a>
-      </li>
-      <li class="menu-item">
-        <a class="menu-item-link" href="marketplace.html">
+        <a class="menu-item-link" href="/marketplace">
           <svg class="menu-item-link-icon icon-marketplace">
             <use xlink:href="#svg-marketplace"></use>
           </svg>
@@ -295,29 +263,16 @@
       </li>
     </ul>
     <p class="navigation-widget-section-title">My Profile</p>
-    <a class="navigation-widget-section-link" href="hub-profile-info.html">Profile Info</a>
-    <a class="navigation-widget-section-link" href="hub-profile-social.html">Social &amp; Stream</a>
-    <a class="navigation-widget-section-link" href="hub-profile-notifications.html">Notifications</a>
-    <a class="navigation-widget-section-link" href="hub-profile-messages.html">Messages</a>
-    <a class="navigation-widget-section-link" href="hub-profile-requests.html">Friend Requests</a>
+    <a class="navigation-widget-section-link" href="{{ url('profile')}}">Profile Info</a>
     <p class="navigation-widget-section-title">Account</p>
-    <a class="navigation-widget-section-link" href="hub-account-info.html">Account Info</a>
-    <a class="navigation-widget-section-link" href="hub-account-password.html">Change Password</a>
-    <a class="navigation-widget-section-link" href="hub-account-settings.html">General Settings</a>
-    <p class="navigation-widget-section-title">Groups</p>
-    <a class="navigation-widget-section-link" href="hub-group-management.html">Manage Groups</a>
-    <a class="navigation-widget-section-link" href="hub-group-invitations.html">Invitations</a>
+    <a class="navigation-widget-section-link" href="#">Account Info</a>
+    <a class="navigation-widget-section-link" href="#">Change Password</a>
+    <a class="navigation-widget-section-link" href="#">General Settings</a>
     <p class="navigation-widget-section-title">My Store</p>
-    <a class="navigation-widget-section-link" href="hub-store-account.html">My Account <span class="highlighted">$250,32</span></a>
-    <a class="navigation-widget-section-link" href="hub-store-statement.html">Sales Statement</a>
-    <a class="navigation-widget-section-link" href="hub-store-items.html">Manage Items</a>
-    <a class="navigation-widget-section-link" href="hub-store-downloads.html">Downloads</a>
-    <p class="navigation-widget-section-title">Main Links</p>
-    <a class="navigation-widget-section-link" href="#">Home</a>
-    <a class="navigation-widget-section-link" href="#">Careers</a>
-    <a class="navigation-widget-section-link" href="#">Faqs</a>
-    <a class="navigation-widget-section-link" href="#">About Us</a>
-    <a class="navigation-widget-section-link" href="#">Our Blog</a>
-    <a class="navigation-widget-section-link" href="#">Contact Us</a>
-    <a class="navigation-widget-section-link" href="#">Privacy Policy</a>
+    <a class="navigation-widget-section-title" href="#">
+      Kwarta Coins
+      <span class="highlighted my_account" ></span> 
+    </a>
+    <a class="navigation-widget-section-link" href="#">Sales Statement</a>
+    <a class="navigation-widget-section-link" href="#">Manage Items</a>
   </nav>

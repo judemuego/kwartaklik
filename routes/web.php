@@ -23,7 +23,7 @@ Route::group(['prefix' => 'profile'], function (){
     Route::get          ('/destroy/{id}',                'ProfileController@destroy'                        )->name('destroy');
 });
 
-Route::group(['prefix' => 'location'], function (){
+Route::group(['prefix' => 'badge'], function (){
     Route::get          ('/',                            'ProfileController@index'                          )->name('page');
     Route::get          ('/get',                         'ProfileController@get'                            )->name('get');
     Route::post         ('/save',                        'ProfileController@save'                           )->name('save');
@@ -31,6 +31,11 @@ Route::group(['prefix' => 'location'], function (){
     Route::post         ('/update/{id}',                 'ProfileController@update'                         )->name('update');
     Route::get          ('/destroy/{id}',                'ProfileController@destroy'                        )->name('destroy');
 });
+
+Route::group(['prefix' => 'point_transaction'], function (){
+    Route::get          ('/sum',                         'PointTransactionController@sum'                          )->name('page');
+});
+
 
 
 Route::get('/dashboard', function () {

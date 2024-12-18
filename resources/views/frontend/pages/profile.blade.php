@@ -29,7 +29,7 @@
                     <p class="sidebar-menu-header-text">Change your avatar &amp; cover, profile information and check points histroy!</p>
                   </div>
                   <div class="sidebar-menu-body accordion-content-linked accordion-open">
-                    <a class="sidebar-menu-link active" href="{{url('profile')}}">Profile Info</a>
+                    <a class="sidebar-menu-link active" href="{{url('profile')}}">Profile Info </a>
                     <a class="sidebar-menu-link" href="#">Points History</a>
                   </div>
                 </div>
@@ -59,7 +59,7 @@
                 </div>
               </div>
               <div class="sidebar-box-footer">
-                <p class="button primary">Save Changes!</p>
+                <p class="button primary" onclick="saveRecord()">Save Changes!</p>
                 <p class="button white small-space">Discard All</p>
               </div>
             </div>
@@ -70,7 +70,9 @@
           
           <div class="section-header-info">
             <p class="section-pretitle">My Profile</p>
-            <h2 class="section-title">Profile Info</h2>
+            <h2 class="section-title">Profile Info (Code: {{Auth::user()->user_code}})</h2>
+           <input type="hidden" value="{{$subscriber->id}}" id="subscriber_id">
+
           </div>
         </div>
         <div class="grid-column">
@@ -129,7 +131,7 @@
               <form class="form">
                 <div class="form-row split">
                   <div class="form-item">
-                    <div class="form-input small">
+                    <div class="form-input small active">
                       <label for="firstname">First Name</label>
                       <input type="text" id="firstname" name="firstname">
                     </div>
@@ -215,7 +217,7 @@
                               <label for="region_id">Region</label>
                               <select id="region_id" name="region_id">
                                 @foreach ($regions as $region)
-                                    <option value="{{$region->id}}">{{$region->name}}</option>
+                                    <option value="{{$region->region_id}}">{{$region->name}}</option>
                                 @endforeach
                               </select>
                               <svg class="form-select-icon icon-small-arrow">
@@ -230,9 +232,7 @@
                             <div class="form-select">
                               <label for="province_id">Province</label>
                               <select id="province_id" name="province_id">
-                                @foreach ($provinces as $province)
-                                    <option value="{{$province->id}}">{{$province->name}}</option>
-                                @endforeach
+                            
                               </select>
                               <svg class="form-select-icon icon-small-arrow">
                                 <use xlink:href="assets/#svg-small-arrow"></use>
@@ -248,9 +248,7 @@
                             <div class="form-select">
                               <label for="city_id">City</label>
                               <select id="city_id" name="city_id">
-                                @foreach ($cities as $city)
-                                    <option value="{{$city->id}}">{{$city->name}}</option>
-                                @endforeach
+                              
                               </select>
                               <svg class="form-select-icon icon-small-arrow">
                                 <use xlink:href="assets/#svg-small-arrow"></use>
@@ -264,9 +262,7 @@
                             <div class="form-select">
                               <label for="barangay_id">Barangay</label>
                               <select id="barangay_id" name="barangay_id">
-                                @foreach ($barangays as $barangay)
-                                    <option value="{{$barangay->id}}">{{$barangay->name}}</option>
-                                @endforeach
+                               
                               </select>
                               <svg class="form-select-icon icon-small-arrow">
                                 <use xlink:href="assets/#svg-small-arrow"></use>

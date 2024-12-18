@@ -100,7 +100,7 @@ app.plugins.createProgressBar({
     stop: 62
   },
   linkText: true,
-  linkUnits: 'exp',
+  linkUnits: '',
   invertedProgress: true
 });
 

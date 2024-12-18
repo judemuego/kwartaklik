@@ -94,7 +94,19 @@
         <h2 class="form-box-title">Create your Account!</h2>
         <form class="form" action="{{ route('register') }}" method="POST">
             @csrf
-            <div class="form-row">
+              <div class="form-row">
+                <div class="form-item">
+                  <div class="form-input">
+                    <label for="email">Referral Code <span>(optional)</span></label>
+                    <input type="text" id="referral_code" name="referral_code" value="{{ old('referral_code') }}">
+                    @error('email')
+                    <div class="error">{{ $message }}</div>
+                    @enderror
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-row">
                 <div class="form-item">
                   <div class="form-input">
                     <label for="email">Your Email</label>

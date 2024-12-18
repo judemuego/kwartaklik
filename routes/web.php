@@ -1,15 +1,9 @@
 <?php
+use App\Http\Controllers\LocationController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+Route::get('/provinces/{region_id}', [LocationController::class, 'getProvinces']);
+Route::get('/cities/{province_id}', [LocationController::class, 'getCities']);
+Route::get('/barangays/{city_id}', [LocationController::class, 'getBarangays']);
 
 Route::get('/', function () {
     return view('auth.login');
@@ -19,6 +13,25 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['prefix' => 'profile'], function (){
+    Route::get          ('/',                            'ProfileController@index'                          )->name('page');
+    Route::get          ('/get',                         'ProfileController@get'                            )->name('get');
+    Route::post         ('/save',                        'ProfileController@save'                           )->name('save');
+    Route::get          ('/edit/{id}',                   'ProfileController@edit'                           )->name('reason');
+    Route::post         ('/update/{id}',                 'ProfileController@update'                         )->name('update');
+    Route::get          ('/destroy/{id}',                'ProfileController@destroy'                        )->name('destroy');
+});
+
+Route::group(['prefix' => 'location'], function (){
+    Route::get          ('/',                            'ProfileController@index'                          )->name('page');
+    Route::get          ('/get',                         'ProfileController@get'                            )->name('get');
+    Route::post         ('/save',                        'ProfileController@save'                           )->name('save');
+    Route::get          ('/edit/{id}',                   'ProfileController@edit'                           )->name('reason');
+    Route::post         ('/update/{id}',                 'ProfileController@update'                         )->name('update');
+    Route::get          ('/destroy/{id}',                'ProfileController@destroy'                        )->name('destroy');
+});
+
 
 Route::get('/dashboard', function () {
     return view('frontend.pages.overview');

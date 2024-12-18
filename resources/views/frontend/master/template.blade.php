@@ -51,5 +51,7 @@
 <script src="{{ asset('assets/js/content/content.js') }}"></script>
 <script src="{{ asset('assets/js/form/form.utils.js') }}"></script>
 <script src="{{ asset('assets/js/utils/svg-loader.js') }}"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+@yield('scripts')
 </body>
 </html>

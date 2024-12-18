@@ -840,8 +840,8 @@
                   </div>
                 </div>
               </a>
-              <p class="user-status-title"><span class="bold">Hi Marina!</span></p>
-              <p class="user-status-text small"><a href="profile-timeline.html">@marinavalentine</a></p>
+              <p class="user-status-title"><span class="bold">Hi {{ Auth::user()->username ?? 'No Name' }}</span></p>
+              <p class="user-status-text small"><a href="profile-timeline.html">{{ Auth::user()->email}}</a></p>
             </div>
           </div>
           <p class="dropdown-navigation-category">My Profile</p>

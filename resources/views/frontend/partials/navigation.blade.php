@@ -1,5 +1,5 @@
 <nav id="navigation-widget-small" class="navigation-widget navigation-widget-desktop closed sidebar left delayed">
-    <a class="user-avatar small no-outline online" href="profile-timeline.html">
+    <a class="user-avatar small no-outline online" href="{{ url('profile')}}">
       <div class="user-avatar-content">
         <div class="hexagon-image-30-32" data-src="assets/img/avatar/01.jpg"></div>
       </div>
@@ -21,7 +21,7 @@
     </a>
     <ul class="menu small">
       <li class="menu-item">
-        <a class="menu-item-link text-tooltip-tfr" href="/" data-title="Profile">
+        <a class="menu-item-link text-tooltip-tfr" href="{{ url('profile')}}" data-title="Profile">
           <svg class="menu-item-link-icon icon-newsfeed">
             <use xlink:href="#svg-newsfeed"></use>
           </svg>
@@ -69,7 +69,7 @@
       <img src="assets/img/cover/01.jpg" alt="cover-01">
     </figure>
     <div class="user-short-description">
-      <a class="user-short-description-avatar user-avatar medium" href="profile-timeline.html">
+      <a class="user-short-description-avatar user-avatar medium" href="{{ url('profile')}}">
         <div class="user-avatar-border">
           <div class="hexagon-120-132"></div>
         </div>
@@ -92,8 +92,8 @@
           <p class="user-avatar-badge-text">24</p>
         </div>
       </a>
-      <p class="user-short-description-title"><a href="profile-timeline.html">Marina Valentine</a></p>
-      <p class="user-short-description-text"><a href="#">www.gamehuntress.com</a></p>
+      <p class="user-short-description-title"><a href="{{ url('profile')}}">{{ Auth::user()->username}}</a></p>
+      <p class="user-short-description-text"><a href="#">{{Auth::user()->email}}</a></p>
     </div>
     <div class="badge-list small">
       <div class="badge-item">
@@ -129,7 +129,7 @@
     </div>
     <ul class="menu">
       <li class="menu-item">
-        <a class="menu-item-link" href="/">
+        <a class="menu-item-link" href="{{ url('profile')}}">
           <svg class="menu-item-link-icon icon-newsfeed">
             <use xlink:href="#svg-newsfeed"></use>
           </svg>
@@ -186,7 +186,7 @@
     </div>
     <div class="navigation-widget-info-wrap">
       <div class="navigation-widget-info">
-        <a class="user-avatar small no-outline" href="profile-timeline.html">
+        <a class="user-avatar small no-outline" href="{{ url('profile')}}">
           <div class="user-avatar-content">
             <div class="hexagon-image-30-32" data-src="assets/img/avatar/01.jpg"></div>
           </div>
@@ -206,7 +206,7 @@
             <p class="user-avatar-badge-text">24</p>
           </div>
         </a>
-        <p class="navigation-widget-info-title"><a href="profile-timeline.html">Marina Valentine</a></p>
+        <p class="navigation-widget-info-title"><a href="{{ url('profile')}}">Marina Valentine</a></p>
         <p class="navigation-widget-info-text">Welcome Back!</p>
       </div>
       <p class="navigation-widget-info-button button small secondary">Logout</p>

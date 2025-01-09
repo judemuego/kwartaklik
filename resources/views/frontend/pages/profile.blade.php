@@ -68,12 +68,20 @@
         
         <div class="section-header">
           
-          <div class="section-header-info">
-            <p class="section-pretitle">My Profile</p>
-            <h2 class="section-title">Profile Info <h5>My Code: {{Auth::user()->user_code}}</h5></h2>
-           <input type="hidden" value="{{$subscriber->id}}" id="subscriber_id">
-
-          </div>
+          <div class="section-header-info" style="text-align: center; padding: 20px; background-color: #f9f9f9; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+            <p class="section-pretitle" style="font-size: 1.2rem; color: #6c757d; margin-bottom: 10px;">My Profile</p>
+            <h2 class="section-title" style="font-size: 2rem; color: #333; margin-bottom: 5px;">
+                Profile Info
+            </h2>
+            <h5 style="font-size: 1rem; color: #555; margin-bottom: 20px;">My Code: {{ Auth::user()->user_code }}</h5>
+            <input type="hidden" value="{{ $subscriber->id }}" id="subscriber_id">
+            
+            <div style="margin-top: 20px; display: inline-block; background: #fff; padding: 15px; border: 1px solid #ddd; border-radius: 8px;">
+                {{$qrCode}}
+            </div>
+        
+            <p style="margin-top: 10px; font-size: 0.9rem; color: #777;">Scan the QR code to share your referral link!</p>
+        </div>
         </div>
         <div class="grid-column">
           <div class="grid grid-3-3-3 centered">

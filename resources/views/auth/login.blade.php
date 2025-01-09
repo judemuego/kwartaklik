@@ -23,7 +23,7 @@
       <p class="landing-info-text">Turn your Kliks into Kwarte, anytime, anywhere!</p>
       <div class="tab-switch">
         <p class="tab-switch-button login-register-form-trigger">Login</p>
-        <p class="tab-switch-button login-register-form-trigger">Register</p>
+        <p class="tab-switch-button login-register-form-trigger" id="register-tab">Register</p>
       </div>
     </div>
     <div class="landing-form">
@@ -181,5 +181,19 @@
 <script src="{{ asset('assets/js/form/form.utils.js') }}"></script>
 <script src="{{ asset('assets/js/landing/landing.tabs.js') }}"></script>
 <script src="{{ asset('assets/js/utils/svg-loader.js') }}"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Auto-click the Register tab when the page loads
+    document.getElementById('register-tab').click();
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const userCode = urlParams.get('user_code');
+    
+    // If user_code exists in the URL, auto-fill the referral_code input field
+    if (userCode) {
+      document.getElementById('referral_code').value = userCode;
+    }
+  });
+</script>
 </body>
 </html>

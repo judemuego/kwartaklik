@@ -263,16 +263,17 @@
       </li>
     </ul>
     <p class="navigation-widget-section-title">My Profile</p>
+    <a class="navigation-widget-section-title" href="#">
+      Kwarta Coins
+      <span class="highlighted my_account" ></span> 
+    </a>
     <a class="navigation-widget-section-link" href="{{ url('profile')}}">Profile Info</a>
     <p class="navigation-widget-section-title">Account</p>
     <a class="navigation-widget-section-link" href="#">Account Info</a>
     <a class="navigation-widget-section-link" href="#">Change Password</a>
     <a class="navigation-widget-section-link" href="#">General Settings</a>
     <p class="navigation-widget-section-title">My Store</p>
-    <a class="navigation-widget-section-title" href="#">
-      Kwarta Coins
-      <span class="highlighted my_account" ></span> 
-    </a>
+    
     <a class="navigation-widget-section-link" href="#">Sales Statement</a>
     <a class="navigation-widget-section-link" href="#">Manage Items</a>
   </nav>

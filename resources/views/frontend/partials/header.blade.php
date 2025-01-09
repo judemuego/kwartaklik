@@ -817,7 +817,13 @@
               <p class="user-status-text small"><a href="profile-timeline.html">{{ Auth::user()->email}}</a></p>
             </div>
           </div>
+          
           <p class="dropdown-navigation-category">My Profile</p>
+          <a class="dropdown-navigation-link" href="hub-store-account.html">
+            Kwarta Coins
+            <span class="highlighted my_account"></span> 
+          
+          </a>
           <a class="dropdown-navigation-link" href="#">Profile Info</a>
           <a class="dropdown-navigation-link" href="#">Points History</a>
           <p class="dropdown-navigation-category">Account</p>
@@ -825,11 +831,7 @@
           <a class="dropdown-navigation-link" href="hub-account-password.html">Change Password</a>
           <a class="dropdown-navigation-link" href="hub-account-settings.html">General Settings</a>
           <p class="dropdown-navigation-category">My Store</p>
-          <a class="dropdown-navigation-link" href="hub-store-account.html">
-              Kwarta Coins
-              <span class="highlighted my_account"></span> 
-            
-          </a>
+          
           <a class="dropdown-navigation-link" href="hub-store-statement.html">Sales Statement</a>
           <a class="dropdown-navigation-link" href="hub-store-items.html">Manage Items</a>
           <form action="{{ route('logout') }}" method="POST">

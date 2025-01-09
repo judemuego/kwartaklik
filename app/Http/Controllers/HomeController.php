@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Subscriber;
+use App\User;
 use Yajra\Address\Entities\Region;
 use Yajra\DataTables\Facades\DataTables;
 use Auth;
 use Illuminate\Http\Request;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class HomeController extends Controller
 {
@@ -28,7 +30,13 @@ class HomeController extends Controller
     public function index()
     {
         $regions = Region::get();
+        $user = User::select('id', 'user_code')->where('id', Auth::user()->id)->first();
+
         $subscriber = Subscriber::select('id')->where('user_id', Auth::user()->id)->first();
-        return view('frontend.pages.profile', compact('regions', 'subscriber'));
+
+        $registrationLink = "http://kwartaklikapp.opimac.com?referral_code={$user->user_code}";
+        $qrCode = QrCode::size(200)->generate($registrationLink);
+
+        return view('frontend.pages.profile', compact('regions', 'subscriber', 'qrCode'));
     }
 }

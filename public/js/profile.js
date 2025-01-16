@@ -9,6 +9,8 @@ $(function() {
         $(this).val($(this).val().toUpperCase());
     });
 
+   
+
     // Edit record on page load
     edit(record_id);
 
@@ -63,6 +65,13 @@ $(function() {
         }
     });
 });
+
+function copyLink() {
+    var copyText = document.getElementById("referral-link");
+    copyText.select();
+    copyText.setSelectionRange(0, 99999); // For mobile devices
+    document.execCommand("copy");
+}
 
 // Save the record with all selected fields
 function saveRecord() {

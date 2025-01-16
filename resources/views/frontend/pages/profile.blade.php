@@ -81,7 +81,20 @@
             </div>
         
             <p style="margin-top: 10px; font-size: 0.9rem; color: #777;">Scan the QR code to share your referral link!</p>
+        
+            <!-- Copyable link section -->
+            <div style="margin-top: 20px;">
+                <label for="referral-link" style="font-size: 1rem; color: #555;">Referral Link:</label>
+                <input type="text" id="referral-link" value="http://kwartaklikapp.opimac.com?referral_code={{ Auth::user()->user_code }}" readonly
+                    style="width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px; font-size: 1rem;">
+                <button onclick="copyLink()" style="margin-top: 10px; padding: 8px 16px; font-size: 1rem; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;">
+                    Copy Link
+                </button>
+            </div>
         </div>
+        
+      
+        
         </div>
         <div class="grid-column">
           <div class="grid grid-3-3-3 centered">
